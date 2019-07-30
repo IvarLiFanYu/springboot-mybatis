@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DOD Config 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+<mapper namespace="com.lfy.springbootmybatis.dao.UserMapper">
+    <insert id="insert" parameterType="com.lfy.springbootmybatis.bean.User">
+        insert into user(id,username,sex,password) values (#{id},#{username},#{sex},#{password})
+    </insert>
+    <delete id="delete" parameterType="java.lang.String">
+        delete from user where id = #{id}
+    </delete>
+    <select id="selectById" parameterType="java.lang.String" resultType="com.lfy.springbootmybatis.bean.User">
+        select * from user where id = #{id}
+    </select>
+    <update id="update" parameterType="com.lfy.springbootmybatis.bean.User">
+        update user set username = #{username}, sex = #{sex}, password = #{password} where id = #{id}
+    </update>
+</mapper>
